@@ -1,0 +1,60 @@
+1.3.6 (2018-11-12):
+    * Get rid of boost data_time dependency
+    * Fix some implicit switch/case fallthroughs
+    * Sync with CGAL 4.13 and prepare for CGAL 4.14
+    * Fix a memory leak in extrude C API (fix #179)
+    * Remove Nef polyhedra inclusion
+    * Intersection: Fix lexicographic order of coordinates (fix #171)
+1.3.5 (2018-04-23):
+    * Fix 1.3.4 link issues.
+1.3.4 (2018-04-10):
+    * Fix postgis build issue. Also fix wrong version number in 1.3.3
+1.3.3 (2018-04-06):
+    * Fix compilation + tests with cgal 4.11.
+    * WARNING: this release breaks postgis, you should use 1.3.4 !
+1.3.2 (2017-09-17):
+    * Fix compilation with CGAL 4.10 => minimal CGAL 4.10 branch version: 4.10.1
+1.3.1 (2017-05-29):
+    * Add a SFCGAL-osg library for OSG specific functions
+    * Fix C API geometry_is_planar
+    * Fix Doxygen script
+1.3.0 (2016-02-29):
+    * Add a validity flag to geometries
+    * Add an option to straight skeleton to return the distance to borders
+    * Add sfcgal_geometry_is_valid_detail to the C API
+    * Remove grid and ASC reader
+    * Remove the viewer
+    * Fix compilation issue with boost 1.60 (#119)
+    * Fix WKT parsing issues (#81 #117)
+    * Retain bisectors of narrow angles in MedialAxis output
+1.2.2 (2015-11-16):
+    * Fix compilation issues with CGAL 4.7
+    * Fix Travis CI support for CGAL 4.3 and CGAL 4.7
+    * Fix potential crash in StraightSkeleton (#111)
+1.2.1 - invalid release
+1.2.0 (2015-09-18):
+    * Improve the computation speed of straight skeletons by using an inexact construction kernel
+    * Add a new function approximateMedialAxis
+    * Fix an invalidity case (polygon degenerated to a point) #108
+    * Fix compilation issues with boost 1.58
+    * Add Travis support
+1.1.0 (2015-01-14):
+    * New spatial operation Union(geom, geom) and Difference(geom, geom).
+    * Exposed Volume(geom) in C api and added output with a decimal
+      representation sfcgal_geometry_as_text_decim (thanks @matze09)
+    * Minor bug fixes
+1.0.5 (2014-08-19):
+    * Fix validity check message when converting to 2D
+    * Fix a polygon orientation test (postgis bug #2818)
+    * Fix a bug in plane3D
+    * Add better handling of EMPTY in collections
+    * Compilation issues:
+      * Fix a cmake issue (FindOsgQT)
+      * Fix compilation issue with gcc < 4.5
+      * Avoid osg dependency when viewer is not built
+      * Fix postgresql include directory
+      * Add detection of lib64 directories
+1.0.4 (2013-11-29):
+    Fix compilation with CGAL 4.3
+ 
+For older news, see https://github.com/Oslandia/SFCGAL/releases
