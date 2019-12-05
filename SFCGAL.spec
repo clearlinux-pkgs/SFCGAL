@@ -4,7 +4,7 @@
 #
 Name     : SFCGAL
 Version  : 1.3.7
-Release  : 3
+Release  : 4
 URL      : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Source0  : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Summary  : Wrapper around the CGAL library that intents to implement 2D and 3D operations on OGC standards models
