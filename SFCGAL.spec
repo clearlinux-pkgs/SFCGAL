@@ -4,10 +4,10 @@
 #
 Name     : SFCGAL
 Version  : 1.3.7
-Release  : 4
+Release  : 5
 URL      : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Source0  : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
-Summary  : Wrapper around the CGAL library that intents to implement 2D and 3D operations on OGC standards models
+Summary  : A C++ wrapper library around CGAL supporting additional features
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: SFCGAL-bin = %{version}-%{release}
@@ -21,9 +21,8 @@ BuildRequires : gmp-dev
 BuildRequires : mpfr-dev
 
 %description
-This directory includes some backports and fixes from CGAL 4.2 and 4.3.
-It is included with the CMake directive include_directories()
-in order to overload system include files.
+SFCGAL is a C++ wrapper library around CGAL with the aim of supporting ISO
+191007:2013 and OGC Simple Features for 3D operations.
 
 %package bin
 Summary: bin components for the SFCGAL package.
@@ -40,7 +39,6 @@ Group: Development
 Requires: SFCGAL-lib = %{version}-%{release}
 Requires: SFCGAL-bin = %{version}-%{release}
 Provides: SFCGAL-devel = %{version}-%{release}
-Requires: SFCGAL = %{version}-%{release}
 Requires: SFCGAL = %{version}-%{release}
 
 %description dev
@@ -66,15 +64,17 @@ license components for the SFCGAL package.
 
 %prep
 %setup -q -n SFCGAL-1.3.7
+cd %{_builddir}/SFCGAL-1.3.7
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559578828
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1583889680
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -83,21 +83,21 @@ export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1559578828
+export SOURCE_DATE_EPOCH=1583889680
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/SFCGAL
-cp LICENSE %{buildroot}/usr/share/package-licenses/SFCGAL/LICENSE
+cp %{_builddir}/SFCGAL-1.3.7/LICENSE %{buildroot}/usr/share/package-licenses/SFCGAL/4c196d30bdc5653bf02111f19a8412f602932467
 pushd clr-build
 %make_install
 popd
@@ -225,4 +225,4 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/SFCGAL/LICENSE
+/usr/share/package-licenses/SFCGAL/4c196d30bdc5653bf02111f19a8412f602932467
