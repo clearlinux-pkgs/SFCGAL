@@ -4,7 +4,7 @@
 #
 Name     : SFCGAL
 Version  : 1.3.7
-Release  : 5
+Release  : 6
 URL      : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Source0  : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Summary  : A C++ wrapper library around CGAL supporting additional features
