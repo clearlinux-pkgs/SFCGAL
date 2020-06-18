@@ -4,7 +4,7 @@
 #
 Name     : SFCGAL
 Version  : 1.3.7
-Release  : 6
+Release  : 7
 URL      : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Source0  : https://github.com/Oslandia/SFCGAL/archive/v1.3.7/SFCGAL-1.3.7.tar.gz
 Summary  : A C++ wrapper library around CGAL supporting additional features
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583889680
+export SOURCE_DATE_EPOCH=1592460345
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -79,8 +79,8 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
@@ -94,7 +94,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1583889680
+export SOURCE_DATE_EPOCH=1592460345
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/SFCGAL
 cp %{_builddir}/SFCGAL-1.3.7/LICENSE %{buildroot}/usr/share/package-licenses/SFCGAL/4c196d30bdc5653bf02111f19a8412f602932467
