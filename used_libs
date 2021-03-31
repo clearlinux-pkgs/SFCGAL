@@ -1,11 +1,10 @@
 ld-linux-x86-64.so.2
 libCGAL.so.13
-libCGAL_Core.so.13
 libboost_serialization.so.1.74.0
-libboost_thread.so.1.74.0
 libc.so.6
 libgcc_s.so.1
 libgmp.so.10
+libgmpxx.so.4
 libm.so.6
 libmpfr.so.6
 libstdc++.so.6
