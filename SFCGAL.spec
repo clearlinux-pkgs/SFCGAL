@@ -4,7 +4,7 @@
 #
 Name     : SFCGAL
 Version  : v1.3.9
-Release  : 9
+Release  : 10
 URL      : https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.3.9/SFCGAL-v1.3.9.tar.gz
 Source0  : https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.3.9/SFCGAL-v1.3.9.tar.gz
 Summary  : A C++ wrapper library around CGAL supporting additional features
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1617216150
+export SOURCE_DATE_EPOCH=1617389294
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -96,7 +96,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1617216150
+export SOURCE_DATE_EPOCH=1617389294
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/SFCGAL
 cp %{_builddir}/SFCGAL-v1.3.9/LICENSE %{buildroot}/usr/share/package-licenses/SFCGAL/4c196d30bdc5653bf02111f19a8412f602932467

@@ -1,5 +1,4 @@
 ld-linux-x86-64.so.2
-libCGAL.so.13
 libboost_serialization.so.1.74.0
 libc.so.6
 libgcc_s.so.1
